@@ -8,6 +8,6 @@ The provided makefiles assume you have it in your path.
 ## Contents
 
 * `hello/`. A Hello World! implementation written in assembly language. 
-It generates a ROM file, which can be easily loaded into your favorite
-emulator. 
+It generates a ROM file to be loaded as a cartridge and a BIN file
+to be converted into WAV and loadde with BLOAD. 
 

@@ -12,14 +12,6 @@
 
 include "msx-bios.asm"
 
-org 0x8000
-
-header:
-	db "AB"
-	dw main
-	dw 0, 0, 0
-	dw 0, 0, 0
-
 main:
 	call initScreen
 	call printHello
@@ -51,7 +43,3 @@ printChar:
 
 
 hello db "Hello World!",0
-
-org 0xbfff
-ending db 0
-
