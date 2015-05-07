@@ -1,14 +1,16 @@
 ;-----------------------------------------------------------------------------;
-; A Hello World! implementation in Z80 assembly for MSX
+; File        : hello.asm
+; Description : A Hello World! implementation in Z80 assembly for MSX
 ;
 ; Copyright (C) 2015 Alvaro Polo
+;
+; This Source Code Form is subject to the terms of the Mozilla Public
+; License, v. 2.0. If a copy of the MPL was not distributed with this
+; file, You can obtain one at http://mozilla.org/MPL/2.0/.
+;
 ;-----------------------------------------------------------------------------;
 
-INITXT 		equ 0x006C
-POSIT		equ 0x00C6
-CHPUT		equ 0x00A2
-
-FGCOL 		equ 0xf3e9
+include "msx-bios.asm"
 
 org 0x8000
 
@@ -25,7 +27,7 @@ stop:
 	jp stop
 
 initScreen:
-	ld hl, FGCOL
+	ld hl, FORCLR
 	ld [hl], 15
 	inc hl
 	ld [hl], 1
