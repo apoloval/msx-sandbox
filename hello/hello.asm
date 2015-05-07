@@ -27,8 +27,11 @@ initScreen:
 	ld [hl], 1
 
 	call INITXT
+	call ERAFNK
+	ret
 
 printHello:
+	call CLS
 	ld h, 1
 	ld l, 1 
 	call POSIT
