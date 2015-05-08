@@ -20,6 +20,5 @@ header:
 
 include "hello.asm"
 
-; Extend it to at least 256 bytes to avoid cassette load errors
-org 0x80ff
-ending db 0
+; put 32 bytes at the end to avoid cassette load errors
+ending dw 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
