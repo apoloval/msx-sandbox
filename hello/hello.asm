@@ -21,9 +21,9 @@ stop:
 initScreen:
 	ld hl, FORCLR
 	ld [hl], 15
-	inc hl
+	ld hl, BAKCLR
 	ld [hl], 1
-	inc hl
+	ld hl, BDRCLR
 	ld [hl], 1
 
 	call INITXT
@@ -33,7 +33,7 @@ initScreen:
 printHello:
 	call CLS
 	ld h, 1
-	ld l, 1 
+	ld l, 1
 	call POSIT
 	ld hl, hello
 printChar:

@@ -137,3 +137,5 @@ CALBAS      equ 0x0159
 ;
 
 FORCLR      equ 0xf3e9
+BAKCLR      equ 0xf3ea
+BDRCLR      equ 0xf3eb
