@@ -139,3 +139,12 @@ CALBAS      equ 0x0159
 FORCLR      equ 0xf3e9
 BAKCLR      equ 0xf3ea
 BDRCLR      equ 0xf3eb
+
+;
+; MSX-1 VRAM addresses
+;
+CHRTBL		equ 0x0000
+NAMTBL		equ 0x1800
+CLRTBL		equ 0x2000
+SPRATR		equ 0x1b00
+SPRTBL		equ 0x3800
