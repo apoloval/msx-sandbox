@@ -10,50 +10,50 @@
 ;
 ;-----------------------------------------------------------------------------;
 
-include "msx-bios.asm"
+	include	"msx-bios.asm"
 
 main:
-	call initScreen
-	call loadPallete
+	call	initScreen
+	call	loadPallete
 stop:
-	jp stop
+	jp	stop
 
 initScreen:
-	ld hl, FORCLR
-	ld [hl], 15
-	ld hl, BAKCLR
-	ld [hl], 1
-	ld hl, BDRCLR
-	ld [hl], 1
+	ld	hl, FORCLR
+	ld	(hl), 15
+	ld	hl, BAKCLR
+	ld	(hl), 1
+	ld	hl, BDRCLR
+	ld	(hl), 1
 
-	call INIGRP
+	call	INIGRP
 	ret
 
 loadPallete:
-	call DISSCR
+	call	DISSCR
 
 ; Fill the char table
-	ld hl, pcb_chars
-	ld de, CHRTBL
-	ld bc, 32*24*8
-	call LDIRVM
+	ld	hl, pcb_chars
+	ld	de, CHRTBL
+	ld	bc, 32*24*8
+	call	LDIRVM
 
 ; Fill the color table
-	ld hl, pcb_cols
-	ld de, CLRTBL
-	ld bc, 32*24*8
-	call LDIRVM
+	ld	hl, pcb_cols
+	ld	de, CLRTBL
+	ld	bc, 32*24*8
+	call	LDIRVM
 
 ; Fill the name table
-	ld hl, pcb_names
-	ld de, NAMTBL
-	ld bc, 768
-	call LDIRVM
+	ld	hl, pcb_names
+	ld	de, NAMTBL
+	ld	bc, 768
+	call	LDIRVM
 
 
 ; Done, enable screen & return
-	call ENASCR
+	call	ENASCR
 	ret
 
-include "pcb-chars.asm"
-include "pcb-names.asm"
+	include	"pcb-chars.asm"
+	include	"pcb-names.asm"

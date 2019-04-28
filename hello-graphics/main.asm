@@ -10,15 +10,14 @@
 ;
 ;-----------------------------------------------------------------------------;
 
-org 0x8000
+	org	$8000
 
 header:
-	db "AB"
-	dw main
-	dw 0, 0, 0
-	dw 0, 0, 0
+	db	"AB"
+	dw	main
+	dw	0, 0, 0
+	dw	0, 0, 0
 
-include "hello.asm"
+	include	"hello.asm"
 
-org 0xbfff
-ending db 0
+	ds	$c000 - $, 0

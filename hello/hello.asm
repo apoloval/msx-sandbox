@@ -10,39 +10,39 @@
 ;
 ;-----------------------------------------------------------------------------;
 
-include "msx-bios.asm"
+        include "msx-bios.asm"
 
 main:
-	call initScreen
-	call printHello
+	call	initScreen
+	call    printHello
 stop:
-	jp stop
+	jp      stop
 
 initScreen:
-	ld hl, FORCLR
-	ld [hl], 15
-	ld hl, BAKCLR
-	ld [hl], 1
-	ld hl, BDRCLR
-	ld [hl], 1
+	ld      hl, FORCLR
+	ld      (hl), 15
+	ld      hl, BAKCLR
+	ld      (hl), 1
+	ld      hl, BDRCLR
+	ld      (hl), 1
 
-	call INITXT
-	call ERAFNK
+	call    INITXT
+	call    ERAFNK
 	ret
 
 printHello:
-	call CLS
-	ld h, 1
-	ld l, 1
-	call POSIT
-	ld hl, hello
+	call    CLS
+	ld      h, 1
+	ld      l, 1
+	call    POSIT
+	ld      hl, hello
 printChar:
-	ld a, [hl]
-	or a
-	ret z
-	call CHPUT
-	inc hl
-	jr printChar
+	ld      a, (hl)
+	or      a
+	ret     z
+	call    CHPUT
+	inc     hl
+	jr      printChar
 
 
-hello db "Hello World!",0
+hello   db      "Hello World!",0

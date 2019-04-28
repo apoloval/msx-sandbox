@@ -10,15 +10,15 @@
 ;
 ;-----------------------------------------------------------------------------;
 
-org 0x8000 -7
-
 header:
-    db 0xfe
-    dw main
-    dw ending
-    dw main
+	db	$fe
+	dw	main
+	dw	ending
+	dw	main
 
-include "hello.asm"
+	.phase	$8000
+
+	include	"hello.asm"
 
 ; put 32 bytes at the end to avoid cassette load errors
-ending dw 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+ending:	ds	32, 0
